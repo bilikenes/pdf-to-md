@@ -1,36 +1,66 @@
-# Yerel PDF → Markdown
+# **Local PDF to Markdown** 
 
-PDF dosyalarını `pymupdf4llm` kullanarak tamamen yerel biçimde Markdown'a çeviren Windows uygulaması. Dosyalar hiçbir web servisine gönderilmez.
+A Windows application that converts PDF files to Markdown entirely on your computer using <u><mark>`pymupdf4llm`</mark></u> <mark>.</mark> Your files are never uploaded to a web service. 
 
-## Çalıştırma
+## **Getting Started** 
 
-1. Bilgisayarda Python 3.10 veya daha yenisi kurulu olmalı.
-2. `run.bat` dosyasına çift tıklayın.
-3. İlk çalıştırmada gerekli paketler `.venv` klasörüne kurulur; sonraki açılışlar doğrudan uygulamayı başlatır.
-4. PDF'leri pencereye sürükleyip **Markdown'a Dönüştür** düğmesine basın.
+1. Make sure Python 3.10 or later is installed on your computer. 
 
-Varsayılan olarak:
+2. Double-click <mark>`run.bat` .</mark> 
 
-- OCR gerektiğinde otomatik çalışır.
-- OCR dili `tur+eng` olur.
-- Üstbilgi ve altbilgiler çıktıya eklenmez.
-- `.md` dosyası PDF'nin bulunduğu klasöre yazılır.
-- Var olan bir Markdown dosyasının üzerine yazılmaz; yeni çıktıya `_2`, `_3` gibi bir ek eklenir.
+3. On the first launch, the required packages will be installed in a local <mark>`.venv`</mark> directory. Subsequent launches will start the application directly. 
 
-## OCR notu
 
-Metin tabanlı PDF'lerde OCR gerekmez. Taranmış PDF'lerde PyMuPDF4LLM'in OCR altyapısı kullanılır. Türkçe OCR çalışmazsa sistemde Tesseract ve Türkçe dil verisinin (`tur`) kurulması gerekebilir. OCR kullanmayacaksan ayarlardan **OCR kullanma** seçeneğini seçebilirsin.
+4. Drag and drop your PDF files into the application window, **Convert to Markdown**
 
-## EXE oluşturma
+## **Default Settings** 
 
-`build.bat` dosyasına çift tıklayın. Paketleme tamamlandığında uygulama şu klasörde oluşur:
+By default, the application: 
 
-```text
+- Runs OCR automatically when needed. 
+- Uses <mark>`tur+eng`</mark> as the OCR language. 
+- Excludes headers and footers from the output. 
+
+- Saves the <mark>`.md`</mark> file in the same directory as the source PDF. 
+- Never overwrites an existing Markdown file. If a file with the same name already exists, a suffix such as <mark>`_2`</mark> or <mark>`_3`</mark> is added automatically. 
+
+## **OCR** 
+
+Text-based PDFs usually do not require OCR. 
+
+For scanned PDFs, the application uses PyMuPDF4LLM's OCR support. If Turkish OCR does not work, you may need to install Tesseract OCR and the Turkish language data package ( `tur` ) on your system. 
+
+To disable OCR completely, select **Do not use OCR** in the application settings. 
+
+## **Building the Windows Application** 
+
+Double-click <mark>`build.bat`</mark> to create the packaged application. 
+
+After the build process is complete, the executable will be available at: 
+
+```
 dist\PDF-to-Markdown\PDF-to-Markdown.exe
 ```
 
-Hızlı açılması için tek dosyalık paket yerine klasör tabanlı paketleme kullanılmıştır. `dist\PDF-to-Markdown` klasörünü bütün olarak taşıyın.
+The application is packaged as a directory-based build instead of a single executable to provide faster startup times. 
 
-## Gizlilik
+When copying or distributing the application, move the entire directory: 
 
-Uygulama kodunda ağ isteği veya bir yapay zekâ API'si yoktur. Paketlerin ilk kurulumunda yalnızca Python paketleri internetten indirilir; PDF dönüştürme işlemi yereldir.
+### `dist\PDF-to-Markdown` 
+
+Do not copy only the <mark>`.exe`</mark> file. 
+
+## **Privacy** 
+
+PDF conversion is performed entirely on your computer. 
+
+The application does not contain: 
+
+- Network requests 
+
+- Cloud-based processing 
+
+- Artificial intelligence API integrations • File uploads to external services 
+
+An internet connection is only required during the initial setup, when Python packages are downloaded and installed. Once installation is complete, PDF conversion works locally. 
+
