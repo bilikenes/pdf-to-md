@@ -60,7 +60,9 @@ The application does not contain:
 
 - Cloud-based processing 
 
-- Artificial intelligence API integrations • File uploads to external services 
+- Artificial intelligence API integrations 
+
+- File uploads to external services 
 
 An internet connection is only required during the initial setup, when Python packages are downloaded and installed. Once installation is complete, PDF conversion works locally. 
 
